@@ -11,12 +11,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class WormCore {
 
-    //数据处理层对象
-    public volatile Access access = new Access();
     //Document获取层对象
     //private volatile Catch Catch = new Catch();
     //Document解析层对象
     private final Analysis analysis = new Analysis();
+    //数据处理层对象
+    public volatile Access access = new Access();
 
     public void Wormcore(LinkedBlockingQueue<String> UrlQueue, String sqlFile) throws InterruptedException, IOException {
         synchronized (this) {
@@ -32,7 +32,7 @@ public class WormCore {
                 try {
                     UrlList = access.DataAccess(DataMap, sqlFile);
                 } catch (Exception e) {
-                    System.out.println("WormCore--------" + e.getMessage() + "--------" + e);
+                    System.out.println("WormCore--------" + e.getMessage());
                 }
                 //定义迭代器，把抓取到的Url添加到Url队列中
                 Iterator<String> iterator = UrlList.iterator();

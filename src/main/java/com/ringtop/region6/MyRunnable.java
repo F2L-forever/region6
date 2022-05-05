@@ -18,7 +18,7 @@ class MyRunnable implements Runnable {
                 //把主方法中的URL队列传给核心控制类，开始该线程的爬取
                 WormMain.wormCore.Wormcore(WormMain.UrlQueue, sqlFile);
             } catch (IOException | InterruptedException e) {
-                System.out.println("MyRunnable--------" + e.getMessage() + "--------" + e);
+                System.out.println("MyRunnable--------" + e.getMessage());
             }
         }
 

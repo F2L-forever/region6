@@ -24,8 +24,8 @@ public class Catch {
     static final String ROOT_URL;
     static final String REFRESH_URL;
     static final String BASE_URL = "http://www.stats.gov.cn";
-    static Map<String, String> cookies = getCookies();
     private static final int count = 0;
+    static Map<String, String> cookies = getCookies();
 
     static {
         ROOT_URL = BASE_URL + "/tjsj/tjbz/tjyqhdmhcxhfdm";
@@ -66,7 +66,7 @@ public class Catch {
             Document document = Jsoup.parse(pageXml, BASE_URL);
             return document;
         } catch (Exception e) {
-            System.out.println("Catch--------" + e.getMessage() + "--------" + e);
+            System.out.println("Catch--------" + e.getMessage());
             return CatchDocument(url);
         } finally {
             webClient.close();

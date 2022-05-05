@@ -114,11 +114,10 @@ public class Analysis {
         for (int i = 0; i < Codes.size(); i++) {
             if (maxLen.get() <= 6) {
                 Types.add(0 + "");
-                Leves.add((maxLen.get() / 2) + "");
             } else {
                 Types.add(1 + "");
-                Leves.add((maxLen.get() / 2 / 2) + "");
             }
+            Leves.add((maxLen.get() == 2 ? 1 : (maxLen.get() == 4 ? 2 : (maxLen.get() == 6 ? 3 : (maxLen.get() == 9) ? 1 : (maxLen.get() == 12 ? 2 : 0)))) + "");
         }
 
         Message.put("Code", Codes);
@@ -130,6 +129,4 @@ public class Analysis {
         return Message;
 
     }
-
-
 }
