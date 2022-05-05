@@ -23,7 +23,7 @@ public class WormCore {
 
 
             if (!UrlQueue.isEmpty()) {
-                UrlQueue.stream().parallel().forEach(Url->{
+                UrlQueue.stream().parallel().forEach(Url -> {
                     //通过Url队列中的Url抓取Document，进行Url和文本信息的抓取
                     Document document = Catch.CatchDocument(Url);
                     //数据解析模块返回的数据（含有文本信息以及URL）
@@ -31,11 +31,7 @@ public class WormCore {
 
                     //数据处理模块分离出的、只含有URL的集合
                     ArrayList<String> UrlList = new ArrayList<>();
-                    try {
-                        UrlList = access.DataAccess(DataMap, sqlFile);
-                    } catch (Exception e) {
-                        System.out.println("WormCore--------" + e.getMessage());
-                    }
+                    UrlList = access.DataAccess(DataMap, sqlFile);
                     //定义迭代器，把抓取到的Url添加到Url队列中
                     Iterator<String> iterator = UrlList.iterator();
                     while (iterator.hasNext()) {
